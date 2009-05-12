@@ -1,0 +1,12 @@
+log/*.log
+tmp/**/*
+.DS_Store
+config/database.yml
+public/stylesheets/all*
+public/javascripts/all*
+test/unit/*
+test/fixtures/*
+test/functional/*
+coverage/*
+vendor/rails/*
+db/development.sqlite3
