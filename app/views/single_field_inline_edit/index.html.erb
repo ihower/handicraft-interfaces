@@ -1,0 +1,9 @@
+<% @items.each do |item| %>
+
+  <div id="inline-editing-<%= item.id %>">
+  <%= render :partial => "show", :locals => { :item => item } %>
+  </div>
+  
+  <p><%=h item.description %></p>
+
+<% end -%>

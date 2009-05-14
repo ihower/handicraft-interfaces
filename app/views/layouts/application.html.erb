@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Designing Web Interfaces on Rails</title>
+  <link rel="shortcut icon" href="/favicon.ico">
+  <%= yield :page_specific_link %>
+  <%#= stylesheet_link_tag "blueprint/blueprint-0.6/lib/reset" %>
+  <%= yield :page_specific_css %>
+</head>
+<body>
+
+<%= yield %>
+
+<%= javascript_include_tag "jquery",
+                           "jquery-ui",
+                           "jrails",
+                           "application", :cache => 'all' %>
+<%= yield :page_specific_javascript %>
+</body>
+</html>
