@@ -17,6 +17,8 @@ class SingleFieldInlineEditController < ApplicationController
     @item = Item.find(params[:id])
     @item.update_attributes(params[:item])
     
+    #TODO: save fails? 
+    
     render :update do |page|
       page.replace_html "inline-editing-#{@item.id}", :partial => 'show', :locals => { :item => @item }
       page.visual_effect :highlight, "inline-editing-#{@item.id}"
