@@ -1,0 +1,7 @@
+<% remote_form_for item , :url => ge1_item_path(item) , :html => {:method => :put} do |f| -%>
+
+  <%= f.text_field :name %>
+  
+  <%= f.submit "Submit", :class => 'submit' %> or <%= cancel_link( 'cancel', item) %>
+    
+<% end %>

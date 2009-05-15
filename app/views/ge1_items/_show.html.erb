@@ -1,0 +1,6 @@
+<%= h item.name %>
+  
+<span class="inline-edit-tool">
+  <%= link_to_remote "edit", :url => edit_ge1_item_path(item), :method => :get %>
+  <%= link_to_remote "destroy", :url => ge1_item_path(item), :confirm => "Are you sure?", :method => :delete %>
+<span>

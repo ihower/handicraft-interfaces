@@ -1,0 +1,40 @@
+<% content_for :page_specific_css do %>
+<style type="text/css" media="screen">
+  .inline-edit-tool {
+    font-size: 12px;
+  }
+</style>
+<% end -%>
+
+<a herf="#" id="inline-edit-tool-toggle" >Edit</a>
+
+<ul>
+<% @items.each do |item| %>
+
+  <li id="<%= dom_id(item, :inline_edit) %>">
+  <%= render :partial => "show", :locals => { :item => item } %>
+  </li>
+  
+<% end -%>
+</ul>
+
+<% content_for :page_specific_javascript do %>
+<script type="text/javascript" charset="utf-8">
+ // (function($) {
+      $(document).ready(function() {
+          $(".inline-edit-tool").hide();
+          
+          $("#inline-edit-tool-toggle").toggle(function(event){
+            $(".inline-edit-tool").show();
+              $("#inline-edit-tool-toggle").html("Done editing")
+          }, function(){
+            $(".inline-edit-tool").hide();
+            $("#inline-edit-tool-toggle").html("Edit")
+          }
+          )
+      });
+      
+
+//  })(jQuery);
+</script>
+<% end -%>
