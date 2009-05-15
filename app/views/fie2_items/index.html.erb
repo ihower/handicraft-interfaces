@@ -1,0 +1,20 @@
+<% content_for :page_specific_css do %>
+<style type="text/css" media="screen">
+  .inline-edit-tool {
+    font-size: 12px;
+  }
+</style>
+<% end -%>
+
+<% @items.each do |item| %>
+<div id="<%= dom_id(item) %>">
+
+  <div id="<%= dom_id(item, :inline_edit) %>">
+  <%= render :partial => "show", :locals => { :item => item } %>
+  </div>
+  
+  <p><%=h item.description %></p>
+  
+</div>
+
+<% end -%>
