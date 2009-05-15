@@ -31,7 +31,7 @@ class Fie2ItemsController < ApplicationController
     
     render :update do |page|
       page.replace_html dom_id(@item, :inline_edit)
-      page.visual_effect :fade, dom_id(@item)
+      page.visual_effect :fade, dom_id(@item, :inline_edit)
     end
   end
   

@@ -1,9 +1,16 @@
 <% remote_form_for item , :url => fie2_item_path(item) , :html => {:method => :put} do |f| -%>
 
+  <p>
+  <%= f.label :name, "Name" %>
   <%= f.text_field :name %>
+  </p>
+  
+  <p>
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description %>
+  </p>
   
   <div class="editor">
     <%= f.submit "Submit", :class => 'submit' %> or <%= cancel_link( 'cancel', item) %>
-    
   </div>
 <% end %>
