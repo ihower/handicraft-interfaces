@@ -1,4 +1,4 @@
-class SingleFieldInlineEditController < ApplicationController
+class Fie1ItemsController < ApplicationController
 
   def index
     @items = Item.find(:all)
