@@ -1,6 +1,6 @@
 <% @items.each do |item| %>
 
-  <div id="inline-editing-<%= item.id %>">
+  <div id="<%= dom_id(item, :inline_edit) %>">
   <%= render :partial => "show", :locals => { :item => item } %>
   </div>
   

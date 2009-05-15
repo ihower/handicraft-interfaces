@@ -8,7 +8,7 @@ class Fie1ItemsController < ApplicationController
     @item = Item.find(params[:id])
     
     render :update do |page|
-      page.replace_html "inline-editing-#{@item.id}", :partial => 'edit', :locals => { :item => @item }
+      page.replace_html dom_id(@item, :inline_edit), :partial => 'edit', :locals => { :item => @item }
     end
   end
   
@@ -18,7 +18,7 @@ class Fie1ItemsController < ApplicationController
       
     render :update do |page|
       @item.reload unless @item.update_attributes(params[:item])
-      page.replace_html "inline-editing-#{@item.id}", :partial => 'show', :locals => { :item => @item }
+      page.replace_html dom_id(@item, :inline_edit), :partial => 'show', :locals => { :item => @item }
       page.visual_effect :highlight, "inline-editing-#{@item.id}"
     end
     
