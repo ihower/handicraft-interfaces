@@ -1,7 +1,6 @@
 log/*.log
 tmp/**/*
 .DS_Store
-config/database.yml
 public/stylesheets/all*
 public/javascripts/all*
 test/unit/*

@@ -7,3 +7,7 @@ Example code we have:
 * Single-Field Inline Edit
 * Multi-Field Inline Edit
 * Group Edit
+
+Install:
+
+* rake dev:build
