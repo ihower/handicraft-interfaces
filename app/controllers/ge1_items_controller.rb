@@ -5,21 +5,14 @@ class Ge1ItemsController < ApplicationController
   end
   
   def sort
-    @new_position = params[:inline_edit_item]
     
-    @invert_new_position=[]
-    @new_position.each_with_index do |item_id, new_position|
-      @invert_new_position[item_id.to_i - 1] = new_position + 1
-    end
-    
-    @items = Item.find(:all, :order => 'id')
-    
-    @items.each_with_index do |item, i|
-      item.update_attribute( :position, @invert_new_position[i] )
+    params[:inline_edit_item].each_with_index do |item_id, new_position|
+      #Item.update( item_id, :position => new_position + 1 ) # this will cause 2 queries
+      Item.update_all( "position = #{new_position+1}", "id = #{item_id.to_i}" )
     end
     
     render :update do |page|
-      page.replace_html 'info', "affect #{@items.size} items, receive #{@new_position.join(',')} and #{@invert_new_position.join(',') }"
+      page.replace_html 'info', "receive #{params[:inline_edit_item].join(',')}"
     end
   end
   
