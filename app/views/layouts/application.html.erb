@@ -6,6 +6,7 @@
   <link rel="shortcut icon" href="/favicon.ico">
   <%= stylesheet_link_tag "blueprint/screen", "blueprint/plugins/buttons/screen", "forms", "jquery-ui", "main", :media => "screen, projection" %>
   <%= stylesheet_link_tag "blueprint/print", :media => "print" %>
+  <%= stylesheet_link_tag "jquery.jgrowl" %>
   <!--[if IE]>
     <%= stylesheet_link_tag "blueprint/ie", :media => "screen, projection" %>
   <![endif]-->
@@ -23,6 +24,7 @@
                            "jquery.form",
                            "handicraft",
                            "application", :cache => 'all' %>
+<%= javascript_include_tag "jquery.jgrowl" %>
 <%= yield_authenticity_token %>                           
 <%= yield :page_specific_javascript %>
 </body>
