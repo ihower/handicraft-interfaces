@@ -1,7 +1,9 @@
 module Handicraft
-  module BaseHelper
+  module Helper
   
-  SITE_NAME = 'Handicraft'
+  unless const_defined? :SITE_NAME
+    SITE_NAME = "undefined"
+  end
   
   # Passes the authenticity token for use in javascript
   def yield_authenticity_token
