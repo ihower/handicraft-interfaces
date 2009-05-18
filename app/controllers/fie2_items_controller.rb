@@ -17,6 +17,8 @@ class Fie2ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update_attributes(params[:item])
     
+    #TODO: error handle should be more complex
+    
     render :update do |page|
       @item.reload unless @item.valid?
       page.replace_html dom_id(@item, :inline_edit), :partial => 'show', :locals => { :item => @item }
