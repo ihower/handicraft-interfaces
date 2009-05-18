@@ -1,3 +1,6 @@
 <h2>
-  <%=  link_to_remote item.name, :url => edit_fie1_item_path(item), :method => :get %>
+  
+  <%#= link_to_remote item.name, :url => edit_fie1_item_path(item), :method => :get %>
+  <%= link_to item.name, edit_fie1_item_path(item), :class => "h-get" %>
+  
 </h2>
