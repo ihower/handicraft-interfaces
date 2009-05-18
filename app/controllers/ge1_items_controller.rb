@@ -1,7 +1,24 @@
 class Ge1ItemsController < ApplicationController
 
   def index
+    @items = Item.find(:all, :order => 'position')
+  end
+  
+  def sort
+    @new_position = params[:inline_edit_item]
+    
+    @invert_new_position=[]
+    @new_position.each_with_index do |item_id, new_position|
+      @invert_new_position[item_id.to_i - 1] = new_position + 1
+    end
+    
     @items = Item.find(:all)
+    
+    @items.each_with_index do |item, i|
+      item.update_attribute( :position, @invert_new_position[i] )
+    end
+    
+    render :text => "affect #{@items.size} items, receive #{@new_position.join(',')} and #{@invert_new_position.join(',') }"
   end
   
   def edit

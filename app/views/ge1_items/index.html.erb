@@ -6,9 +6,11 @@
 </style>
 <% end -%>
 
+<div id="info"></div>
+
 <a herf="#" id="inline-edit-tool-toggle" >Edit</a>
 
-<ul>
+<ul id="sortable-list">
 <% @items.each do |item| %>
 
   <li id="<%= dom_id(item, :inline_edit) %>">
@@ -32,6 +34,15 @@
             $("#inline-edit-tool-toggle").html("Edit")
           }
           )
+          
+          $("#sortable-list").sortable({
+            handle : '.handle',
+            update : function () {
+              var order = $('#sortable-list').sortable('serialize');
+              $("#info").load("ge1_items/sort?"+order);
+            }
+          });
+
       });
       
 
