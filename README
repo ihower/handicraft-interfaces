@@ -4,11 +4,12 @@ Licensed under the MIT: http://www.opensource.org/licenses/mit-license.php
 
 Example code we have:
 
+* handicraft_ujs CRUD
 * Single-Field Inline Edit
 * Multi-Field Inline Edit
 * Group Edit
 * Drag and Drop List
 
-Install:
+Setup fake data:
 
 * rake dev:build
