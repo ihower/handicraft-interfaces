@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :fie1_items
   map.resources :fie2_items
-  map.resources :ge1_items, :collection => { :sort => :any }
+  map.resources :ge1_items, :collection => { :sort => :put }
   
   # The priority is based upon order of creation: first created -> highest priority.
 

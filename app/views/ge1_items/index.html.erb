@@ -39,7 +39,7 @@
             handle : '.handle',
             update : function () {
               var order = $('#sortable-list').sortable('serialize');
-              $("#info").load("ge1_items/sort?"+order);
+              $.post("ge1_items/sort", order + "&_method=put" , undefined, 'script');
             }
           });
 

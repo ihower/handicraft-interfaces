@@ -12,13 +12,15 @@ class Ge1ItemsController < ApplicationController
       @invert_new_position[item_id.to_i - 1] = new_position + 1
     end
     
-    @items = Item.find(:all)
+    @items = Item.find(:all, :order => 'id')
     
     @items.each_with_index do |item, i|
       item.update_attribute( :position, @invert_new_position[i] )
     end
     
-    render :text => "affect #{@items.size} items, receive #{@new_position.join(',')} and #{@invert_new_position.join(',') }"
+    render :update do |page|
+      page.replace_html 'info', "affect #{@items.size} items, receive #{@new_position.join(',')} and #{@invert_new_position.join(',') }"
+    end
   end
   
   def edit
