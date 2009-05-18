@@ -18,5 +18,7 @@ namespace :dev do
       Category.create!( :name => 'Category 2')
       Category.create!( :name => 'Category 3')
       
+      Person.create( :name => 'ihower' )
+
   end
 end

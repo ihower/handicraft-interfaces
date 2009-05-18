@@ -1,0 +1,23 @@
+<tr id="<%= dom_id(person) %>">
+  <td><%=h person.name %></td>
+  
+  <td>
+    <%= link_to 'Show action (GET and eval script)', person_path(person), :class => "h-get" %>
+  </td>
+  
+  <td>
+    <%= link_to 'Edit action (GET HTML and update)', edit_person_path(person), :class => "h-get {update: 'content'}" %>
+  </td>
+  
+  <td>
+    <%= link_to 'Show action (GET JSON and eval callback)', person_path(person), :class => "h-get {callback: 'handle_get_json'}" %>
+  </td>  
+  
+  <td>
+    <%= link_to 'Destroy action (DELETE and eval script)', person, :class => "h-delete {confirm: 'Are you sure delete?' }" %>
+  </td>
+  
+  <td>
+    <%= link_to 'Destroy action (DELETE and eval callback)', person, :class => "h-delete {confirm: 'Are you sure delete?', callback: 'handle_delete_json' }" %>
+  </td>
+</tr>

@@ -1,0 +1,9 @@
+<h2>Edit person</h2>
+
+<% form_for @person, person_path(@person), :html => { :method => :put, :class => 'h-put' } do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit "Save" %>
+  </p>
+<% end %>

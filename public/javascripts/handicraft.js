@@ -43,9 +43,9 @@ $(document).ready(function() {
       if ($(this).metadata().confirm && !confirm($(this).metadata().confirm)) return false;
       
       if ( $(this).metadata().callback ) {
-          $.post($(this).attr('href'), "_method=" + method, eval( $(this).metadata().callback ), 'json');
+          $.post($(this).attr('href'), "_method=" + method.replace(/^h-/,''), eval( $(this).metadata().callback ), 'json');
       } else {
-          $.post($(this).attr('href'), "_method=" + method, undefined, 'script');
+          $.post($(this).attr('href'), "_method=" + method.replace(/^h-/,''), undefined, 'script');
       }
       
       return false;
@@ -56,7 +56,7 @@ $(document).ready(function() {
     $('form.' + method).live('submit', function() {
         $(this).ajaxSubmit({
            dataType:  'script',
-           //type: method.replace(/^h-/,'')
+           type: method.replace(/^h-/,'')
         });
         return false;
     });  
