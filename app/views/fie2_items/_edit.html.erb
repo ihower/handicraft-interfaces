@@ -1,5 +1,5 @@
-<% remote_form_for item , :url => fie2_item_path(item) , :html => {:method => :put} do |f| -%>
-
+<%# remote_form_for item , :url => fie2_item_path(item) , :html => {:method => :put} do |f| -%>
+<% form_for item, :url => fie2_item_path(item) , :html => { :method => :put, :class => "h-put" } do |f| -%>
   <p>
   <%= f.label :name, "Name" %>
   <%= f.text_field :name %>

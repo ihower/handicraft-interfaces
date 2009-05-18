@@ -2,6 +2,10 @@
 <%= h item.name %>
   
 <span class="inline-edit-tool">
-  <%= link_to_remote "edit", :url => edit_ge1_item_path(item), :method => :get %>
-  <%= link_to_remote "destroy", :url => ge1_item_path(item), :confirm => "Are you sure?", :method => :delete %>
+  <%#= link_to_remote "edit", :url => edit_ge1_item_path(item), :method => :get %>
+  <%#= link_to_remote "destroy", :url => ge1_item_path(item), :confirm => "Are you sure?", :method => :delete %>
+  
+  <%= link_to "edit", edit_ge1_item_path(item), :class => 'h-get' %>
+  <%= link_to "destroy", ge1_item_path(item), :class => "h-delete {confirm: 'Are you sure delete?' }" %>
+   
 <span>

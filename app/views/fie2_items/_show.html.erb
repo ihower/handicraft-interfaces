@@ -2,26 +2,12 @@
   <%= h item.name %>
   
   <span id="<%= dom_id(item, :inline_edit_tool) %>" class="inline-edit-tool">
-    <%= link_to_remote "edit", :url => edit_fie2_item_path(item), :method => :get %>
-    <%= link_to_remote "destroy", :url => fie2_item_path(item), :confirm => "Are you sure?", :method => :delete %>
+    <%#= link_to_remote "edit", :url => edit_fie2_item_path(item), :method => :get %>
+    <%#= link_to_remote "destroy", :url => fie2_item_path(item), :confirm => "Are you sure?", :method => :delete %>
+    <%= link_to "edit", edit_fie2_item_path(item), :class => 'h-get' %>
+    <%= link_to "destroy", fie2_item_path(item), :class => "h-delete {confirm: 'Are you sure delete?' }" %>
   <span>
         
 </h2>
 
 <p><%=h item.description %></p>
-  
-<% content_for :page_specific_javascript do %>
-<script type="text/javascript" charset="utf-8">
- // (function($) {
-      $(document).ready(function() {
-          $("#<%= dom_id(item, :inline_edit_tool) %>").hide();
-          
-          $("#<%= dom_id(item, :inline_edit) %>").hover(function(){
-            $("#<%= dom_id(item, :inline_edit_tool) %>").show();
-          }, function(){
-            $("#<%= dom_id(item, :inline_edit_tool) %>").hide();
-          });
-      });
-//  })(jQuery);
-</script>
-<% end -%>

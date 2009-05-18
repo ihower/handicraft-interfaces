@@ -22,30 +22,28 @@
 
 <% content_for :page_specific_javascript do %>
 <script type="text/javascript" charset="utf-8">
- // (function($) {
-      $(document).ready(function() {
-          $(".inline-edit-tool").hide();
-          
-          $("#inline-edit-tool-toggle").toggle(function(event){
-            $(".inline-edit-tool").show();
-              $("#inline-edit-tool-toggle").html("Done editing")
-          }, function(){
-            $(".inline-edit-tool").hide();
-            $("#inline-edit-tool-toggle").html("Edit")
-          }
-          )
-          
-          $("#sortable-list").sortable({
-            handle : '.handle',
-            update : function () {
-              var order = $('#sortable-list').sortable('serialize');
-              $.post("ge1_items/sort", order + "&_method=put" , undefined, 'script');
-            }
-          });
 
-      });
+  $(document).ready(function() {
+      $(".inline-edit-tool").hide();
       
-
-//  })(jQuery);
+      $("#inline-edit-tool-toggle").toggle(function(event){
+        $(".inline-edit-tool").show();
+          $("#inline-edit-tool-toggle").html("Done editing")
+      }, function(){
+        $(".inline-edit-tool").hide();
+        $("#inline-edit-tool-toggle").html("Edit")
+      }
+      )
+      
+      $("#sortable-list").sortable({
+        handle : '.handle',
+        update : function () {
+          var order = $('#sortable-list').sortable('serialize');
+          $.post("ge1_items/sort", order + "&_method=put" , undefined, 'script');
+        }
+      });
+  
+  });
+      
 </script>
 <% end -%>

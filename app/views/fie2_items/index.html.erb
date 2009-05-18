@@ -7,9 +7,24 @@
 <% end -%>
 
 <% @items.each do |item| %>
-
-  <div id="<%= dom_id(item, :inline_edit) %>">
+  <div id="<%= dom_id(item, :inline_edit) %>" class="inline-edit-area">
     <%= render :partial => "show", :locals => { :item => item } %>
   </div>
+<% end -%>
 
+
+<% content_for :page_specific_javascript do %>
+<script type="text/javascript" charset="utf-8">
+
+      $(document).ready(function() {
+          $(".inline-edit-tool").hide();
+          
+          $(".inline-edit-area").hover(function(){
+            $(this).find(".inline-edit-tool").show();
+          }, function(){
+            $(this).find(".inline-edit-tool").hide();
+          });
+      });
+
+</script>
 <% end -%>
