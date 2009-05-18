@@ -51,4 +51,15 @@ $(document).ready(function() {
       return false;
     }).attr("rel", "nofollow");
   });
+  
+  ['h-post', 'h-put', 'h-delete', 'h-get'].forEach( function(method) {
+    $('form.' + method).live('submit', function() {
+        $(this).ajaxSubmit({
+           dataType:  'script',
+           //type: method.replace(/^h-/,'')
+        });
+        return false;
+    });  
+  });
+  
 });
