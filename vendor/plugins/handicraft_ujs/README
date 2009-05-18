@@ -2,7 +2,7 @@ Author:: Wen-Tien Chang(mailto:ihower@handlino.com)
 Copyright:: Copyright (c) 2009 Handlino Inc.
 Licensed under the MIT: http://www.opensource.org/licenses/mit-license.php
 
-handicraft is a jQuery replacement for Prototype/script.aculo.us on Rails, and it's unobtrusive and accessible.
+handicraft_ujs is a jQuery replacement for Prototype/script.aculo.us on Rails, and it's unobtrusive and accessible.
 
 == some example
 
