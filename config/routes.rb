@@ -6,6 +6,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :fie2_items
   map.resources :ge1_items, :collection => { :sort => :put }
   
+  map.handicraft "/handicraft", :controller => "handicraft"
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

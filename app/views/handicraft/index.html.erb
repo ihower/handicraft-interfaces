@@ -1,0 +1,25 @@
+<h2>Menu</h2>
+
+<%= render_menu(navigation_menu) %>
+
+<h2>Table</h2>
+
+<%= render_table(@items,[
+                    ["Name", lambda{ |i| i.name } ],
+                    ["Action", 
+                      lambda{ |i| 
+                        link_to('Show', '#' ) + ' | ' +
+                        link_to('Edit', '#' )
+                      }
+                    ]
+                ]) %>
+
+<h2>Advanced Table</h2>
+
+<%= render_table(@items, build_table_optios) %>
+
+<h2>Breadcrumb</h2>
+
+<%= breadcrumb_from_some_place( link_to('current page', handicraft_path),
+                                link_to('current page 2', handicraft_path)
+                              ) %>
