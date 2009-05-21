@@ -1,3 +1,5 @@
+// -*- javascript-indent-level: 2 -*-
+
 (function($) {
     $.ajaxSettings.accepts._default = "text/javascript, text/html, application/xml, text/xml, */*";
 })(jQuery);
@@ -26,40 +28,35 @@ $(document).ready(function() {
 $(document).ready(function() {
   // All A tags with class 'h-get', 'h-post', 'h-put' or 'h-delete' will perform an ajax call
   $('a.h-get').live('click', function() {
-    
     if ( $(this).metadata().update ) {
         $("#"+$(this).metadata().update).load( $(this).attr('href') );
     } else if ( $(this).metadata().callback ) {
-        $.getJSON( $(this).attr('href'), undefined, eval( $(this).metadata().callback ) );
+        $.getJSON( $(this).attr('href'), null, eval( $(this).metadata().callback ) );
     } else {
         $.getScript($(this).attr('href') );
     }
+    return false;
+  });
+
+  $("a.h-post, a.h-put, a.h-delete").live("click", function(e) {
+    var method = $(e.target).attr("class").match(/h-(post|put|delete)/i)[1].toLowerCase();
+    var $el = $(e.target);
+
+    if ($el.metadata().confirm && !confirm($el.metadata().confirm)) return false;
+    
+    if ( $el.metadata().callback ) {
+      $.post($el.attr('href'), "_method=" + method, eval( $el.metadata().callback ), 'json');
+    } else {
+      $.post($el.attr('href'), "_method=" + method, null, 'script');
+    }
     
     return false;
-  }).attr("rel", "nofollow");
-
-  ['h-post', 'h-put', 'h-delete'].forEach(function(method) {
-    $('a.' + method).live('click', function() {
-      if ($(this).metadata().confirm && !confirm($(this).metadata().confirm)) return false;
-      
-      if ( $(this).metadata().callback ) {
-          $.post($(this).attr('href'), "_method=" + method.replace(/^h-/,''), eval( $(this).metadata().callback ), 'json');
-      } else {
-          $.post($(this).attr('href'), "_method=" + method.replace(/^h-/,''), undefined, 'script');
-      }
-      
-      return false;
-    }).attr("rel", "nofollow");
   });
   
-  ['h-post', 'h-put', 'h-delete', 'h-get'].forEach( function(method) {
-    $('form.' + method).live('submit', function() {
-        $(this).ajaxSubmit({
-           dataType:  'script',
-           type: method.replace(/^h-/,'')
-        });
-        return false;
-    });  
+  $("form.h-post, form.h-put, form.h-delete, form.h-get").live("submit", function(e) {
+    var method = $(e.target).attr("class").match(/h-(post|put|delete)/i)[1].toLowerCase();
+    $(e.target).ajaxSubmit({ dataType:  'script', type: method });
+    return false;
   });
   
 });
