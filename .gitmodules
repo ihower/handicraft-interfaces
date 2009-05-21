@@ -1,0 +1,6 @@
+[submodule "vendor/plugins/handicraft_ujs"]
+	path = vendor/plugins/handicraft_ujs
+	url = git://github.com/ihower/handicraft_ujs.git
+[submodule "vendor/plugins/handicraft_helper"]
+	path = vendor/plugins/handicraft_helper
+	url = git://github.com/ihower/handicraft_helper.git
